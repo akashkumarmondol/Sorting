@@ -59,6 +59,7 @@ export default class SortingVisualizer extends React.Component {
     }
     Dynamic_array_submit()
     {
+
         const array = [];
         var str = document.getElementById("arrayID").value;
         let rem=0,temp;
