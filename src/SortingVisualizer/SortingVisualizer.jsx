@@ -66,7 +66,7 @@ export default class SortingVisualizer extends React.Component {
         {
             if(str[i]===' ')
             {
-                array.push(rem);
+                array.push(rem*10);
                 rem=0;
             }
             else
@@ -75,7 +75,7 @@ export default class SortingVisualizer extends React.Component {
                 rem=rem*10+temp;
             }
         }
-        array.push(rem);
+        array.push(rem*10);
 
         this.setState({array});
     }
