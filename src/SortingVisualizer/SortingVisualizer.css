@@ -2,16 +2,80 @@
     margin-top: 50px;
     position: absolute;
     left: 10px;
-    /* top: 100px; */
+    /*top: 100px;*/
   }
   
 .array-bar {
     /* width: 30px;*/
     display: inline-block;
-    margin: 0 3px;
   }
-.btn{
-    margin-top: 10px;
-    background-color: black;
-
+  ul{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #333;
+  }
+  ul li{
+    float: left;
+    list-style-type: none;
+  }
+  ul li button{
+    background-color: #333333;
+    color: white;
+    text-decoration: none;
+    padding: 12px 16px;
+  }
+  ul li p{
+    color: white;
+    margin: 5px 5px;
+    border:5px 5px 5px 5px;
+    border-color: yellow;
+    border-style: solid;
+  }
+  .btn-container{
+    position: relative;
+    margin-left: 0;
+  }
+.Input-type{
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  justify-content: left;
+  align-items: flex-start;
 }
+
+.Input-type .input1{
+  padding: 5px;
+  margin-right: 10px;
+}
+.Input-type .input2{
+  padding: 5px;
+  margin-right: 10px;
+}
+.Input-type .input3{
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 400px;
+}
+.Input-type .input4{
+  padding: 5px;
+  margin-right: 10px;
+}
+.Paragrapgh{
+  display: flex;
+  align-items: flex-start;
+  margin-left: 10px;
+  margin-top: 10px;
+  justify-content: left;
+}
+.Paragrapgh .para1{
+  padding-left: 5px;
+  margin-right: 10px;
+}
+.Paragrapgh .para2{
+  padding-left: 5px;
+  margin-right: 10px;
+  overflow: auto;
+}
+
