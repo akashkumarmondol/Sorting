@@ -1,8 +1,11 @@
 .array-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 50px;
+    z-index: 1;
     position: absolute;
     left: 10px;
-    /*top: 100px;*/
+    /* top: 100px; */
   }
   
 .array-bar {
@@ -81,3 +84,13 @@
   overflow: auto;
 }
 
+.bar-value{
+  display: inline-block;
+  height: 3px;
+  margin-bottom: 5px;
+}
+
+.display{
+  display: flex;
+  flex-direction: column-reverse;
+}
