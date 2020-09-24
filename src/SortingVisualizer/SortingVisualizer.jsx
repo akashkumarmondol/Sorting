@@ -18,7 +18,6 @@ const THIRD_COLOR = 'yellow';
 const FORTH_COLOR = 'pink'
 const barwidth = 20;
 const multiply=2;
-var AlgorithmName=" ";
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -48,7 +47,6 @@ export default class SortingVisualizer extends React.Component {
         this.setState({ barwidthMargin: pixel });
         console.log("pixel: " + pixel);
         console.log(this.state.barAuto);
-        AlgorithmName=" ";
     }
     onChangeHandlerSpeed = (event) => {
         var selectValue = event.target.value;
@@ -62,7 +60,6 @@ export default class SortingVisualizer extends React.Component {
         this.setState({ barwidthAuto: val });
         this.setState({ barwidthMargin: pixel });
         this.setState({ dynamic_Input_array_number: selectValue });
-        AlgorithmName=" ";
     }
     onChange_Dynamic_Input_array = (event) => {
         var selectValue = event.target.value;
@@ -104,6 +101,11 @@ export default class SortingVisualizer extends React.Component {
 
 
     insertionSort() {
+        var colorChangeEffect=document.getElementById("InsertionID");
+        colorChangeEffect.addEventListener("click",function(){
+            colorChangeEffect.classList.add("ButtonColorChange");
+        });
+
         const animations = getInsertionSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
             //console.log(animations[i]);
@@ -143,7 +145,6 @@ export default class SortingVisualizer extends React.Component {
 
     }
     selectionSort() {
-        AlgorithmName="Selection Sort";
         const [animations, array] = getSelectionSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -402,13 +403,13 @@ export default class SortingVisualizer extends React.Component {
             <div>
                 <div className="btn-container">
                     <ul>
-                        <li><button onClick={() => this.resetArray()}>Generate New Array</button> </li>
-                        <li><button onClick={() => this.selectionSort()}>Selection Sort</button></li>
-                        <li><button onClick={() => this.bubbleSort()}>Bubble Sort</button></li>
-                        <li><button onClick={() => this.insertionSort()}>Insertion Sort</button></li>
-                        <li><button onClick={() => this.mergeSort()}>Merge Sort</button></li>
-                        <li><button onClick={() => this.heapSort()}>Heap Sort</button></li>
-                        <li><button onClick={() => this.quickSort()}>Quick Sort</button></li>
+                        <li><button  id="GenerateNewArrayID" onClick={() => this.resetArray()}>Generate New Array</button> </li>
+                        <li><button id="SelectionID" onClick={() => this.selectionSort()}>Selection Sort</button></li>
+                        <li><button id="BubbleID" onClick={() => this.bubbleSort()}>Bubble Sort</button></li>
+                        <li><button id="InsertionID" onClick={() => this.insertionSort()}>Insertion Sort</button></li>
+                        <li><button id="MergeID" onClick={() => this.mergeSort()}>Merge Sort</button></li>
+                        <li><button id="HeapID" onClick={() => this.heapSort()}>Heap Sort</button></li>
+                        <li><button id="QuickID" onClick={() => this.quickSort()}>Quick Sort</button></li>
                         <li>
                             <p>Select Animations speed in ms</p>
                             <select onChange={this.onChangeHandlerSpeed} value={this.state.speedAuto}>
