@@ -1,0 +1,16 @@
+.HomeClass{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: whitesmoke;
+  }
+  .HomeClass li{
+    float: left;
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 5px;
+    background-color: white;
+    border: thin;
+    border-style: solid;
+    font-weight: 800;
+  }

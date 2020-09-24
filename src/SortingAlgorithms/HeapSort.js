@@ -1,4 +1,3 @@
-"use strict"
 export function getHeapSortAnimations(array)
 {
     let animations = [];

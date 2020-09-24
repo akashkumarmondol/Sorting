@@ -17,6 +17,8 @@ const SECONDARY_COLOR = 'red';
 const THIRD_COLOR = 'yellow';
 const FORTH_COLOR = 'pink'
 const barwidth = 20;
+const multiply=2;
+var AlgorithmName=" ";
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -46,6 +48,7 @@ export default class SortingVisualizer extends React.Component {
         this.setState({ barwidthMargin: pixel });
         console.log("pixel: " + pixel);
         console.log(this.state.barAuto);
+        AlgorithmName=" ";
     }
     onChangeHandlerSpeed = (event) => {
         var selectValue = event.target.value;
@@ -53,7 +56,13 @@ export default class SortingVisualizer extends React.Component {
     }
     onChange_Dynamic_Input_array_number = (event) => {
         var selectValue = event.target.value;
+        var pixel = (Math.ceil((60 / selectValue)));
+        var val = (Math.floor((30 * 30) / selectValue));
+        this.setState({ barAuto: selectValue });
+        this.setState({ barwidthAuto: val });
+        this.setState({ barwidthMargin: pixel });
         this.setState({ dynamic_Input_array_number: selectValue });
+        AlgorithmName=" ";
     }
     onChange_Dynamic_Input_array = (event) => {
         var selectValue = event.target.value;
@@ -67,7 +76,7 @@ export default class SortingVisualizer extends React.Component {
         let rem = 0, temp;
         for (let i = 0; i < str.length; i++) {
             if (str[i] === ' ') {
-                array.push(rem * 10);
+                array.push(rem);
                 rem = 0;
             }
             else {
@@ -75,8 +84,7 @@ export default class SortingVisualizer extends React.Component {
                 rem = rem * 10 + temp;
             }
         }
-        array.push(rem * 10);
-
+        array.push(rem);
         this.setState({ array });
     }
 
@@ -88,7 +96,7 @@ export default class SortingVisualizer extends React.Component {
         const array = [];
         console.log("Vslue: "+this.state.barAuto);
         for (let i = 0; i < this.state.barAuto; i++) {
-            array.push(randomIntFromInterval(10, 500));
+            array.push(randomIntFromInterval(1, 200));
         }
         this.setState({ array });
 
@@ -126,7 +134,7 @@ export default class SortingVisualizer extends React.Component {
                 let barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -135,6 +143,7 @@ export default class SortingVisualizer extends React.Component {
 
     }
     selectionSort() {
+        AlgorithmName="Selection Sort";
         const [animations, array] = getSelectionSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -181,7 +190,7 @@ export default class SortingVisualizer extends React.Component {
                 const barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -233,7 +242,7 @@ export default class SortingVisualizer extends React.Component {
                 let barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -270,7 +279,7 @@ export default class SortingVisualizer extends React.Component {
                 let barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -323,7 +332,7 @@ export default class SortingVisualizer extends React.Component {
                 const barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -379,7 +388,7 @@ export default class SortingVisualizer extends React.Component {
                 const barStyle = arrayBars[barIndex].style;
                 let bar = barValue[barIndex];
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight*multiply}px`;
                     bar.innerHTML = `${newHeight}`;
                 }, i * this.state.speedAuto);
             }
@@ -433,11 +442,6 @@ export default class SortingVisualizer extends React.Component {
                 <div className="Paragrapgh">
                     <p className="para1">The number of element is&nbsp;:&nbsp; {this.state.dynamic_Input_array_number} &nbsp;</p>
                     <p className="para2">Input Array :&nbsp;&nbsp; {this.state.dynamic_Input_array_element}&nbsp; </p>
-
-                </div>
-
-                <div>
-
                 </div>
 
                 <div className="array-container">
@@ -447,7 +451,7 @@ export default class SortingVisualizer extends React.Component {
                                 key={idx}
                                 color={PRIMARY_COLOR}
                                 value={value}
-                                height={`${value}px`}
+                                height={`${value*multiply}px`}
                                 width={`${this.state.barwidthAuto}px`}
                                 margin={`${0, this.state.barwidthMargin}px`}
                             />
