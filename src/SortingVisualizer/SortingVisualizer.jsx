@@ -114,7 +114,6 @@ export default class SortingVisualizer extends React.Component {
         
         const animations = getInsertionSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
-            //console.log(animations[i]);
             const arrayBars = document.getElementsByClassName('array-bar');
             const barValue = document.getElementsByClassName('bar-value');
             if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
@@ -267,7 +266,6 @@ export default class SortingVisualizer extends React.Component {
         
         const animations = getMergeSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
-            //console.log(animations[i]);
             const arrayBars = document.getElementsByClassName('array-bar');
             const barValue = document.getElementsByClassName('bar-value');
             if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
@@ -366,7 +364,6 @@ export default class SortingVisualizer extends React.Component {
         const [animations, array] = getQuickSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
-            //console.log(animations[i]);
             const arrayBars = document.getElementsByClassName('array-bar');
             const barValue = document.getElementsByClassName('bar-value');
             if (i >= animations.length) {

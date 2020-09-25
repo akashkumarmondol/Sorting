@@ -29,16 +29,53 @@ The merge() function is used for merging two halves. The merge(arr, l, m, r) is 
                         Example: Given a array  Data: [38, 27, 43, 3, 9, 82, 10]. Data makes sorted using Merge Sort.<br/>
 
                     </p>
-                    //MergeSort image Show here;
+                    <img src={require('../images/MergeSort.png')} height="400px" width="400px"></img>
                     <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Selection Sort:
+                        C++ Source Code for Merge Sort:
                     </p>
                     <div className="designCode">
-                        <a>https://ideone.com/LZ4yfh</a>
+                        <pre>
+                            {`
+                                const animations = getMergeSortAnimations(this.state.array);
+                                for (let i = 0; i < animations.length; i++) {
+                                    const arrayBars = document.getElementsByClassName('array-bar');
+                                    const barValue = document.getElementsByClassName('bar-value');
+                                    if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
+                                        let color = (animations[i][0] == "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
+                                        let [temp, barOneIndex, barTwoIndex] = animations[i];
+                                        let barOneStyle = arrayBars[barOneIndex].style;
+                                        let barTwoStyle = arrayBars[barTwoIndex].style;
+                                        setTimeout(() => {
+                                            barOneStyle.backgroundColor = color;
+                                            barTwoStyle.backgroundColor = color;
+                                        }, i * this.state.speedAuto);
+                                    }
+                                    else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
+                                        let [temp, barIndex1, barIndex2] = animations[i];
+                                        let colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
+                                        let barStyle1 = arrayBars[barIndex1].style;
+                                        let barStyle2 = arrayBars[barIndex2].style;
+                                        setTimeout(() => {
+                                            barStyle1.backgroundColor = colorbar;
+                                            barStyle2.backgroundColor = colorbar;
+                                        }, i * this.state.speedAuto);
+                                    }
+                                    else {
+                                        let [temp, barIndex, newHeight] = animations[i];
+                                        let barStyle = arrayBars[barIndex].style;
+                                        let bar = barValue[barIndex];
+                                        setTimeout(() => {
+                                            barStyle.height = newHeight*multiply} px;
+                                            bar.innerHTML = newHeight;
+                                        }, i * this.state.speedAuto);
+                                    }
+                                }
+                            `}
+                        </pre>
 
                     </div>
 
