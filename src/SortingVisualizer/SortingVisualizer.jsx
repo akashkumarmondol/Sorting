@@ -90,8 +90,8 @@ export default class SortingVisualizer extends React.Component {
           this.resetArray();
       }*/
     resetArray() {
+        this.changeColor(0);
         const array = [];
-        console.log("Vslue: "+this.state.barAuto);
         for (let i = 0; i < this.state.barAuto; i++) {
             array.push(randomIntFromInterval(1, 200));
         }
@@ -99,13 +99,19 @@ export default class SortingVisualizer extends React.Component {
 
     }
 
+    changeColor(id){
+        let allButton = document.querySelectorAll('#sortId > li > button');
+        for(let i=0;i<allButton.length;i++){
+            allButton[i].classList.remove('ButtonColorChange')
+        }
+
+        allButton[id].classList.add('ButtonColorChange');
+    }
 
     insertionSort() {
-        var colorChangeEffect=document.getElementById("InsertionID");
-        colorChangeEffect.addEventListener("click",function(){
-            colorChangeEffect.classList.add("ButtonColorChange");
-        });
-
+        let id = 3;
+        this.changeColor(id);
+        
         const animations = getInsertionSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
             //console.log(animations[i]);
@@ -145,6 +151,9 @@ export default class SortingVisualizer extends React.Component {
 
     }
     selectionSort() {
+        let id=1;
+        this.changeColor(id);
+        
         const [animations, array] = getSelectionSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -199,6 +208,9 @@ export default class SortingVisualizer extends React.Component {
     }
 
     bubbleSort() {
+        let id= 2;
+        this.changeColor(id);
+        
         const [animations, array] = getBubbleSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -250,6 +262,9 @@ export default class SortingVisualizer extends React.Component {
         }
     }
     mergeSort() {
+        let id = 4;
+        this.changeColor(id);
+        
         const animations = getMergeSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
             //console.log(animations[i]);
@@ -288,6 +303,9 @@ export default class SortingVisualizer extends React.Component {
 
     }
     heapSort() {
+        let id = 5;
+        this.changeColor(id);
+        
         const [animations, array] = getHeapSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -342,6 +360,9 @@ export default class SortingVisualizer extends React.Component {
     }
 
     quickSort() {
+        let id = 6;
+        this.changeColor(id);
+        
         const [animations, array] = getQuickSortAnimations(this.state.array);
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
@@ -402,7 +423,7 @@ export default class SortingVisualizer extends React.Component {
         return (
             <div>
                 <div className="btn-container">
-                    <ul>
+                    <ul id="sortId">
                         <li><button  id="GenerateNewArrayID" onClick={() => this.resetArray()}>Generate New Array</button> </li>
                         <li><button id="SelectionID" onClick={() => this.selectionSort()}>Selection Sort</button></li>
                         <li><button id="BubbleID" onClick={() => this.bubbleSort()}>Bubble Sort</button></li>
