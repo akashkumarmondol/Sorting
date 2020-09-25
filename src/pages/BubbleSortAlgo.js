@@ -49,54 +49,36 @@ Then Data: 1 3 5 7 10<br/>
                     <div className="designCode">
                         <pre>
                             {`
-                            const [animations, array] = getBubbleSortAnimations(this.state.array);
-                            const N = animations.length + array.length;
-                            for (let i = 0; i < N; i++) {
-                                const arrayBars = document.getElementsByClassName('array-bar');
-                                const barValue = document.getElementsByClassName('bar-value');
-                                if (i >= animations.length) {
-                                    const barStyleLast = arrayBars[i - animations.length].style;
-                                    setTimeout(() => {
-                                        barStyleLast.backgroundColor = PRIMARY_COLOR;
-                                    }, i * this.state.speedAuto);
-                                    continue;
+                            ///complexity O(n^2)
+                            #include<stdio.h>
+                            int main()
+                            {
+                                int n,i,j,temp;
+                                printf("Enter numbers of input:");
+                                scanf("%d",&n);
+                                int arr[n];
+                                printf("enter some data:\n");
+                                for(i=0;i<n;i++)
+                                {
+                                    scanf("%d",&arr[i]);
                                 }
-                                if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
-                                    let color = (animations[i][0] == "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                    let [temp, barOneIndex, barTwoIndex] = animations[i];
-                                    let barOneStyle = arrayBars[barOneIndex].style;
-                                    let barTwoStyle = arrayBars[barTwoIndex].style;
-                                    setTimeout(() => {
-                                        barOneStyle.backgroundColor = color;
-                                        barTwoStyle.backgroundColor = color;
-                                    }, i * this.state.speedAuto);
+                            
+                                for(i=0;i<n;i++)
+                                {
+                                    for( j=0;j<n-i-1;j++)///Last i elements are already in place.
+                                    {
+                                        if(arr[j]>arr[j+1])
+                                        {
+                                            arr[j]=arr[j+1]-arr[j];
+                                            arr[j+1]=arr[j+1]-arr[j];
+                                            arr[j]=arr[j+1]+arr[j];
+                                        }
+                                    }
                                 }
-                                else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                    let [temp, barIndex1, barIndex2] = animations[i];
-                                    let colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                    let barStyle1 = arrayBars[barIndex1].style;
-                                    let barStyle2 = arrayBars[barIndex2].style;
-                                    setTimeout(() => {
-                                        barStyle1.backgroundColor = colorbar;
-                                        barStyle2.backgroundColor = colorbar;
-                                    }, i * this.state.speedAuto);
-                                }
-                                else if (animations[i][0] === "Fixed") {
-                                    const [temp, barIndex1, barIndex2] = animations[i];
-                                    const barOneStyle = arrayBars[barIndex1].style;
-                                    setTimeout(() => {
-                                        barOneStyle.backgroundColor = FORTH_COLOR;
-                                    }, i * this.state.speedAuto);
-                                }
-                                else {
-                                    let [temp, barIndex, newHeight] = animations[i];
-                                    let barStyle = arrayBars[barIndex].style;
-                                    let bar = barValue[barIndex];
-                                    setTimeout(() => {
-                                        barStyle.height = newHeight*multiply px;
-                                        bar.innerHTML = newHeight;
-                                    }, i * this.state.speedAuto);
-                                }
+                                printf("After sorting:\n");
+                                for(i=0;i<n;i++)
+                                    printf("%d ",arr[i]);
+                                return 0;
                             }
                             `}
                         </pre>

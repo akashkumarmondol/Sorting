@@ -41,56 +41,35 @@ After fourth step Data will must be sorted.<br/>
                     <div className="designCode">
                         <pre>
                             {`
-                                const [animations, array] = getSelectionSortAnimations(this.state.array);
-                                const N = animations.length + array.length;
-                                for (let i = 0; i < N; i++) {
-                                    const arrayBars = document.getElementsByClassName('array-bar');
-                                    const barValue = document.getElementsByClassName('bar-value');
-                                    if (i >= animations.length) {
-                                        const barStyleLast = arrayBars[i - animations.length].style;
-                                        setTimeout(() => {
-                                            barStyleLast.backgroundColor = PRIMARY_COLOR;
-                                        }, i * this.state.speedAuto);
-                                        continue;
+                                #include<stdio.h>
+                                int main()
+                                {
+                                    int size,loc,temp,j,i,min;
+                                    scanf("%d",&size);
+                                    int arr[size];
+                                    for(i=0;i<size;i++)
+                                        scanf("%d",&arr[i]);
+                                
+                                    for(i=0;i<size;i++)
+                                    {
+                                        min=arr[i];
+                                        loc=i;
+                                        for(j=i+1;j<size;j++)
+                                        {
+                                            if(arr[j]<min)
+                                            {
+                                                min=arr[j];
+                                                loc=j;
+                                            }
+                                        }
+                                        temp=arr[i];
+                                        arr[i]=arr[loc];
+                                        arr[loc]=temp;
                                     }
-                                    if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
-                                        const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                        const [temp, barOneIndex, barTwoIndex] = animations[i];
-                                        console.log(animations[i]);
-                                        console.log(temp); console.log(barOneIndex); console.log(barTwoIndex);
-                                        const barOneStyle = arrayBars[barOneIndex].style
-                                        const barTwoStyle = arrayBars[barTwoIndex].style;
-                                        setTimeout(() => {
-                                            barOneStyle.backgroundColor = color;
-                                            barTwoStyle.backgroundColor = color;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                        const [temp, barIndex1, barIndex2] = animations[i];
-                                        const colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                        const barStyle1 = arrayBars[barIndex1].style;
-                                        const barStyle2 = arrayBars[barIndex2].style;
-                                        setTimeout(() => {
-                                            barStyle1.backgroundColor = colorbar;
-                                            barStyle2.backgroundColor = colorbar;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else if (animations[i][0] === "Fixed") {
-                                        const [temp, barIndex1, barIndex2] = animations[i];
-                                        const barOneStyle = arrayBars[barIndex1].style;
-                                        setTimeout(() => {
-                                            barOneStyle.backgroundColor = FORTH_COLOR;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else {
-                                        const [temp, barIndex, newHeight] = animations[i];
-                                        const barStyle = arrayBars[barIndex].style;
-                                        let bar = barValue[barIndex];
-                                        setTimeout(() => {
-                                            barStyle.height = newHeight*multiplypx;
-                                            bar.innerHTML = newHeight;
-                                        }, i * this.state.speedAuto);
-                                    }
+                                
+                                    for(i=0;i<size;i++)
+                                        printf("%d ",arr[i]);
+                                    return 0;
                                 }
                             `}
                         </pre>

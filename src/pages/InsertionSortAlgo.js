@@ -33,40 +33,36 @@ Example: <br />
                     <div className="designCode">
                         <pre>
                             {`
-                               const animations = getInsertionSortAnimations(this. state.array);
-                                for (let i = 0; i < animations.length; i++) {
-                                    const arrayBars = document.getElementsByClassName('array-bar');
-                                    const barValue = document.getElementsByClassName('bar-value');
-                                    if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
-                                        let color = (animations[i][0] == "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                        let [temp, barOneIndex, barTwoIndex] = animations[i];
-                                        let barOneStyle = arrayBars[barOneIndex].style;
-                                        let barTwoStyle = arrayBars[barTwoIndex].style;
-                                        setTimeout(() => {
-                                            barOneStyle.backgroundColor = color;
-                                            barTwoStyle.backgroundColor = color;
-                                        }, i * this.state.speedAuto);
+                            ///cpmlexity O(n^2)
+                            #include<stdio.h>
+                            int main()
+                            {
+                                int n,i,j,temp;
+                                printf("Enter numbers of input:");
+                                scanf("%d",&n);
+                                int arr[n];
+                                printf("enter some data:\n");
+                                for(i=0;i<n;i++)
+                                {
+                                    scanf("%d",&arr[i]);
+                                }
+                            
+                                for(i=1;i<n;i++)
+                                {
+                                    int j=i-1,val=arr[i];
+                                    while(j>=0&&arr[j]>val)
+                                    {
+                                        arr[j+1]=arr[j];
+                                        j--;
                                     }
-                                    else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                        let [temp, barIndex1, barIndex2] = animations[i];
-                                        let colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                        let barStyle1 = arrayBars[barIndex1].style;
-                                        let barStyle2 = arrayBars[barIndex2].style;
-                                        setTimeout(() => {
-                                            barStyle1.backgroundColor = colorbar;
-                                            barStyle2.backgroundColor = colorbar;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else {
-                                        let [temp, barIndex, newHeight] = animations[i];
-                                        let barStyle = arrayBars[barIndex].style;
-                                        let bar = barValue[barIndex];
-                                        setTimeout(() => {
-                                            barStyle.height = newHeight*multiply px;
-                                            bar.innerHTML = newHeight;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                }`
+                                    arr[j+1]=val;
+                                }
+                                printf("After sorting:\n");
+                                for(i=0;i<n;i++)
+                                    printf("%d ",arr[i]);
+                                return 0;
+                            }
+                            `
                             }</pre>
                     </div>
 

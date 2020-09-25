@@ -38,55 +38,64 @@ Let { 4, 5, 3, 1, 2 } be the list that we want to sort from the smallest to the 
                     <div className="designCode">
                         <pre>
                             {`
-                            const [animations, array] = getHeapSortAnimations(this.state.array);
-                            const N = animations.length + array.length;
-                            for (let i = 0; i < N; i++) {
-                                const arrayBars = document.getElementsByClassName('array-bar');
-                                const barValue = document.getElementsByClassName('bar-value');
-                                if (i >= animations.length) {
-                                    const barStyleLast = arrayBars[i - animations.length].style;
-                                    setTimeout(() => {
-                                        barStyleLast.backgroundColor = PRIMARY_COLOR;
-                                    }, i * this.state.speedAuto);
-                                    continue;
+                            #include<stdio.h>
+
+                            int arr[100];
+                            
+                            void swap(int large,int i)
+                            {
+                                int temp;
+                                temp=arr[large];
+                                arr[large]=arr[i];
+                                arr[i]=temp;
+                            }
+                            
+                            void heapify(int n,int i)
+                            {
+                                int large=i,lc=2*i+1,rc=2*i+2;
+                            
+                                if(lc<n&&arr[large]<arr[lc])
+                                    large=lc;
+                            
+                                if(rc<n&&arr[large]<arr[rc])
+                                    large=rc;
+                            
+                                if(large!=i)
+                                {
+                                    swap(large,i);
+                            
+                                    heapify(n,large);
                                 }
-                                if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
-                                    const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                    const [temp, barOneIndex, barTwoIndex] = animations[i];
-                                    console.log(animations[i]);
-                                    const barOneStyle = arrayBars[barOneIndex].style
-                                    const barTwoStyle = arrayBars[barTwoIndex].style;
-                                    setTimeout(() => {
-                                        barOneStyle.backgroundColor = color;
-                                        barTwoStyle.backgroundColor = color;
-                                    }, i * this.state.speedAuto);
+                            }
+                            
+                            void heapsort(int n)
+                            {
+                                int i;
+                                for(i=n/2-1;i>=0;i--)
+                                    heapify(n,i);
+                                for(i=n-1;i>=0;i--)
+                                {
+                                    swap(i,0);
+                            
+                                    heapify(i,0);
                                 }
-                                else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                    const [temp, barIndex1, barIndex2] = animations[i];
-                                    const colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                    const barStyle1 = arrayBars[barIndex1].style;
-                                    const barStyle2 = arrayBars[barIndex2].style;
-                                    setTimeout(() => {
-                                        barStyle1.backgroundColor = colorbar;
-                                        barStyle2.backgroundColor = colorbar;
-                                    }, i * this.state.speedAuto);
-                                }
-                                else if (animations[i][0] === "Fixed") {
-                                    const [temp, barIndex1, barIndex2] = animations[i];
-                                    const barOneStyle = arrayBars[barIndex1].style;
-                                    setTimeout(() => {
-                                        barOneStyle.backgroundColor = FORTH_COLOR;
-                                    }, i * this.state.speedAuto);
-                                }
-                                else {
-                                    const [temp, barIndex, newHeight] = animations[i];
-                                    const barStyle = arrayBars[barIndex].style;
-                                    let bar = barValue[barIndex];
-                                    setTimeout(() => {
-                                        barStyle.height = newHeight*multiply px;
-                                        bar.innerHTML = newHeight;
-                                    }, i * this.state.speedAuto);
-                                }
+                            }
+                            
+                            int main()
+                            {
+                                int i,n;
+                                printf("Array size:");
+                                scanf("%d",&n);
+                                printf("Enter elements:\n");
+                                for(i=0;i<n;i++)
+                                    scanf("%d",&arr[i]);
+                                heapsort(n);
+                            
+                                printf("Show sorted elements:\n");
+                                for(i=0;i<n;i++)
+                                    printf("%d ",arr[i]);
+                                printf("\n");
+                                return 0;
                             }
                             `}
                         </pre>

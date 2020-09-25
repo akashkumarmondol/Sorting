@@ -40,39 +40,82 @@ The merge() function is used for merging two halves. The merge(arr, l, m, r) is 
                     <div className="designCode">
                         <pre>
                             {`
-                                const animations = getMergeSortAnimations(this.state.array);
-                                for (let i = 0; i < animations.length; i++) {
-                                    const arrayBars = document.getElementsByClassName('array-bar');
-                                    const barValue = document.getElementsByClassName('bar-value');
-                                    if (animations[i][0] == "comp1" || animations[i][0] == "comp2") {
-                                        let color = (animations[i][0] == "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                        let [temp, barOneIndex, barTwoIndex] = animations[i];
-                                        let barOneStyle = arrayBars[barOneIndex].style;
-                                        let barTwoStyle = arrayBars[barTwoIndex].style;
-                                        setTimeout(() => {
-                                            barOneStyle.backgroundColor = color;
-                                            barTwoStyle.backgroundColor = color;
-                                        }, i * this.state.speedAuto);
+                                ///complexity O(nlogn)
+
+                                #include<stdio.h>
+                                
+                                #define arr_size 1000
+                                
+                                int arr[arr_size];
+                                int temp[arr_size];
+                                
+                                void merge(int start,int mid,int end)
+                                {
+                                    int first_arr_start=start,second_arr_start=mid+1;
+                                    int i;
+                                
+                                    for(i=first_arr_start;first_arr_start<=mid&&second_arr_start<=end;i++)///akhane 2i ta array(kalponik) dhora hoise and 2i ta array ke assending order e merge kora hoise
+                                    {
+                                        if(arr[first_arr_start]<arr[second_arr_start])
+                                        {
+                                            temp[i]=arr[first_arr_start];
+                                            first_arr_start++;
+                                        }
+                                        else
+                                        {
+                                            temp[i]=arr[second_arr_start];
+                                            second_arr_start++;
+                                        }
                                     }
-                                    else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                        let [temp, barIndex1, barIndex2] = animations[i];
-                                        let colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                        let barStyle1 = arrayBars[barIndex1].style;
-                                        let barStyle2 = arrayBars[barIndex2].style;
-                                        setTimeout(() => {
-                                            barStyle1.backgroundColor = colorbar;
-                                            barStyle2.backgroundColor = colorbar;
-                                        }, i * this.state.speedAuto);
+                                
+                                    while(first_arr_start<=mid)///jodi 2i ta array merge korar somoy 2nd array list zero hoiye jai and tokhno 1st er list e elements thake then 1st array elements gula por por new list e rakha holo
+                                    {
+                                        temp[i]=arr[first_arr_start];
+                                        first_arr_start++;
+                                        i++;
                                     }
-                                    else {
-                                        let [temp, barIndex, newHeight] = animations[i];
-                                        let barStyle = arrayBars[barIndex].style;
-                                        let bar = barValue[barIndex];
-                                        setTimeout(() => {
-                                            barStyle.height = newHeight*multiply} px;
-                                            bar.innerHTML = newHeight;
-                                        }, i * this.state.speedAuto);
+                                    while(second_arr_start<=end)///jodi 2i ta array merge korar somoy 1st array list zero hoiye jai and tokhno 2nd er list e elements thake then 2nd array elements gula por por new list e rakha holo
+                                    {
+                                        temp[i]=arr[second_arr_start];
+                                        second_arr_start++;
+                                        i++;
                                     }
+                                
+                                    for(i=start;i<=end;i++)
+                                    {
+                                        arr[i]=temp[i];///temporary array er elements gula main array te assign kora holo.
+                                    }
+                                }
+                                
+                                void sorting(int start,int end)
+                                {
+                                    int mid;
+                                    if(start>=end)
+                                        return;
+                                    mid=(start+end)/2;
+                                
+                                    sorting(start,mid);
+                                    sorting(mid+1,end);
+                                
+                                    merge(start,mid,end);
+                                }
+                                
+                                int main()
+                                {
+                                    int n,i,j;
+                                    printf("Enter numbers of input data:");
+                                    scanf("%d",&n);
+                                    printf("Enter %d elements:\n",n);
+                                    for(i=0;i<n;i++)
+                                        scanf("%d",&arr[i]);
+                                
+                                    sorting(0,n-1);
+                                
+                                    printf("After sorting:\n");
+                                    for(i=0;i<n;i++)
+                                        printf("%d ",arr[i]);
+                                    printf("\n");
+                                    return 0;
                                 }
                             `}
                         </pre>

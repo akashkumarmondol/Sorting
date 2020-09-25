@@ -33,57 +33,53 @@ class QuickSortAlgo extends Component {
                     <div className="designCode">
                         <pre>
                             {`
-                                const [animations, array] = getQuickSortAnimations(this.state.array);
-                                const N = animations.length + array.length;
-                                for (let i = 0; i < N; i++) {
-                                    const arrayBars = document.getElementsByClassName('array-bar');
-                                    const barValue = document.getElementsByClassName('bar-value');
-                                    if (i >= animations.length) {
-                                        const barStyleLast = arrayBars[i - animations.length].style;
-                                        setTimeout(() => {
-                                            barStyleLast.backgroundColor = PRIMARY_COLOR;
-                                        }, i * this.state.speedAuto);
-                                        continue;
-                                    }
-                                    if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
-                                        const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-                                        const [temp, barOneIndex, barTwoIndex] = animations[i];
-                                        // console.log(animations[i]);
-                                        const barOneStyle = arrayBars[barOneIndex].style
-                                        const barTwoStyle = arrayBars[barTwoIndex].style;
-                                        setTimeout(() => {
-                                            barOneStyle.backgroundColor = color;
-                                            barTwoStyle.backgroundColor = color;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else if (animations[i][0] === "colorChangedOne" || animations[i][0] === "colorChangedTwo") {
-                                        const [temp, barIndex1, barIndex2] = animations[i];
-                                        const colorbar = (animations[i][0] === "colorChangedOne") ? THIRD_COLOR : PRIMARY_COLOR;
-                                        const barStyle1 = arrayBars[barIndex1].style;
-                                        const barStyle2 = arrayBars[barIndex2].style;
-                                        setTimeout(() => {
-                                            barStyle1.backgroundColor = colorbar;
-                                            barStyle2.backgroundColor = colorbar;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else if (animations[i][0] === "pivot1" || animations[i][0] === "pivot2") {
-                                        const [tempP, barIndexP, barIndexP2] = animations[i];
-                                        const colorbarP = (animations[i][0] === "pivot1") ? SECONDARY_COLOR : FORTH_COLOR;
-                                        const barStyleP = arrayBars[barIndexP].style;
-                                        setTimeout(() => {
-                                            barStyleP.backgroundColor = colorbarP;
-                                        }, i * this.state.speedAuto);
-                                    }
-                                    else {
-                                        const [temp, barIndex, newHeight] = animations[i];
-                                        const barStyle = arrayBars[barIndex].style;
-                                        let bar = barValue[barIndex];
-                                        setTimeout(() => {
-                                            barStyle.height = newHeight*multiply px;
-                                            bar.innerHTML = newHeight ;
-                                        }, i * this.state.speedAuto);
+                                /*
+                                Complexity best case: O(nlogn),average case: O(nlogn),worst case: O(n^2)
+                            */
+                            
+                            #include<bits/stdc++.h>
+                            using namespace std;
+                            #define MX 1003
+                            
+                            int Partition(int *arr,int low,int high)
+                            {
+                                int pivot=arr[high];
+                                int i=low;
+                                for(int j=low;j<high;j++)
+                                {
+                                    if(arr[j]<pivot)
+                                    {
+                                        swap(arr[i],arr[j]);
+                                        i++;
                                     }
                                 }
+                                swap(arr[i],arr[high]);
+                                return i;
+                            }
+                            void quicksort(int *arr,int low,int high)
+                            {
+                                if(high<=low)
+                                    return;
+                                int p=Partition(arr,low,high);
+                                quicksort(arr,low,p-1);
+                                quicksort(arr,p+1,high);
+                            }
+                            int main()
+                            {
+                                int n;
+                                int arr[MX];
+                                scanf("%d",&n);
+                                for(int i=0;i<n;i++)
+                                {
+                                    scanf("%d",&arr[i]);
+                                }
+                                quicksort(arr,0,n-1);
+                                for(int i=0;i<n;i++)
+                                {
+                                    printf("%d ",arr[i]);
+                            
+                                }
+                            }
                             `}
                         </pre>
 
