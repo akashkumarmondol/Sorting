@@ -3,8 +3,6 @@
     width: 800px;
     overflow: auto;
     resize: both;
-    max-width: 1600px;
-    max-height: 1600px;
     position: absulate;
     margin-left: 300px;
 }
@@ -17,10 +15,14 @@
 }
 .designCode{
     
-    width: 600px;
+    width: 900px;
     overflow: auto;
     height: 500px;
     border: solid;
     border-color: #333;
     border: 1px 1px 1px 1px;
+}
+.ForRef{
+    margin-top: 20px;
+    text-align: left;
 }

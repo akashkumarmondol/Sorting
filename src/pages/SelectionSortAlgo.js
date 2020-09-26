@@ -31,14 +31,14 @@ After fourth step Data will must be sorted.<br/>
 
                     </p>
                     
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/selection-sort/">https://www.geeksforgeeks.org/selection-sort/ </a></p></div>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Selection Sort:
+                        Source Code for Selection Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                                 #include<stdio.h>

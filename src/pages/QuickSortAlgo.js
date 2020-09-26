@@ -23,14 +23,14 @@ class QuickSortAlgo extends Component {
 
                     </p>
                     <img src={require('../images/QuickSort.png')} height="400px" width="400px"></img>
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/quick-sort/">https://www.geeksforgeeks.org/quick-sort/</a></p></div>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Quick Sort:
+                        Source Code for Quick Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                                 /*

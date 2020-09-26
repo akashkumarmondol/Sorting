@@ -22,7 +22,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/shorting-algo">
+          <Route path="/sorting-visualizer">
             <SortingVisualizer></SortingVisualizer>
           </Route>
           <Route exact path="/">

@@ -39,14 +39,14 @@ Third Pass<br/>
 Then Data: 1 3 5 7 10<br/>
 
                     </p>
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <div className="ForRef"> <p>Ref: <a href="https://en.wikipedia.org/wiki/Bubble_sort">https://en.wikipedia.org/wiki/Bubble_sort </a></p></div>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Bubble Sort:
+                        Source Code for Bubble Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                             ///complexity O(n^2)
@@ -57,7 +57,7 @@ Then Data: 1 3 5 7 10<br/>
                                 printf("Enter numbers of input:");
                                 scanf("%d",&n);
                                 int arr[n];
-                                printf("enter some data:\n");
+                                printf("enter some data: ");
                                 for(i=0;i<n;i++)
                                 {
                                     scanf("%d",&arr[i]);
@@ -75,7 +75,7 @@ Then Data: 1 3 5 7 10<br/>
                                         }
                                     }
                                 }
-                                printf("After sorting:\n");
+                                printf("After sorting: ");
                                 for(i=0;i<n;i++)
                                     printf("%d ",arr[i]);
                                 return 0;

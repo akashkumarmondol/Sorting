@@ -25,17 +25,17 @@ class HeapSortAlgo extends Component {
 Let { 4, 5, 3, 1, 2 } be the list that we want to sort from the smallest to the largest  using Heap Sort. Where we use array.  If the parent node is stored at index I, the left child can be calculated by 2 * I + 1 and right child by 2 * I + 2 (assuming the indexing starts at 0).<br/>
 
                     </p>
-                    <img src={require('../images/BuildHeap.png')} height="400px" width="400px"></img>
+                    <img src={require('../images/BuildHeap.png')} height="500px" width="800px"></img>
                     
-                    <img src={require('../images/SortHeap.png')} height="400px" width="400px"></img>
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <img src={require('../images/SortHeapNew.png')} height="800px" width="800px"></img>
+                    <div className="ForRef"> <p>Ref: <a href="https://en.wikipedia.org/wiki/Heapsort">https://en.wikipedia.org/wiki/Heapsort </a></p></div>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Heap Sort:
+                        Source Code for Heap Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                             #include<stdio.h>
@@ -86,15 +86,15 @@ Let { 4, 5, 3, 1, 2 } be the list that we want to sort from the smallest to the 
                                 int i,n;
                                 printf("Array size:");
                                 scanf("%d",&n);
-                                printf("Enter elements:\n");
+                                printf("Enter elements:");
                                 for(i=0;i<n;i++)
                                     scanf("%d",&arr[i]);
                                 heapsort(n);
                             
-                                printf("Show sorted elements:\n");
+                                printf("Show sorted elements:");
                                 for(i=0;i<n;i++)
                                     printf("%d ",arr[i]);
-                                printf("\n");
+                                printf(" ");
                                 return 0;
                             }
                             `}

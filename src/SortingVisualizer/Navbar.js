@@ -6,7 +6,7 @@ function Navbar() {
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <li className="navbar-brand"><Link to="/">Home</Link></li>
-            <li className="nav-link"><Link to="/shorting-algo">Sorting Visualizer</Link></li>
+            <li className="nav-link"><Link to="/sorting-visualizer">Sorting Visualizer</Link></li>
             <li className="nav-link"><Link to="/Insertion-algo">Insertion</Link></li>
             <li className="nav-link"><Link to="/Bubble-algo">Bubble</Link></li>
             <li className="nav-link"><Link to="/Selection-algo">Selection</Link></li>

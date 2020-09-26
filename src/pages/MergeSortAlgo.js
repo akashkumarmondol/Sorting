@@ -30,14 +30,14 @@ The merge() function is used for merging two halves. The merge(arr, l, m, r) is 
 
                     </p>
                     <img src={require('../images/MergeSort.png')} height="400px" width="400px"></img>
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/merge-sort/">https://www.geeksforgeeks.org/merge-sort/</a></p></div>
                     
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Merge Sort:
+                        Source Code for Merge Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                                 ///complexity O(nlogn)
@@ -105,16 +105,16 @@ The merge() function is used for merging two halves. The merge(arr, l, m, r) is 
                                     int n,i,j;
                                     printf("Enter numbers of input data:");
                                     scanf("%d",&n);
-                                    printf("Enter %d elements:\n",n);
+                                    printf("Enter %d elements: ",n);
                                     for(i=0;i<n;i++)
                                         scanf("%d",&arr[i]);
                                 
                                     sorting(0,n-1);
                                 
-                                    printf("After sorting:\n");
+                                    printf("After sorting: ");
                                     for(i=0;i<n;i++)
                                         printf("%d ",arr[i]);
-                                    printf("\n");
+                                    printf(" ");
                                     return 0;
                                 }
                             `}

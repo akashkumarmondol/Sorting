@@ -23,14 +23,15 @@ class InsertionSortAlgo extends Component {
 Example: <br />
                     </p>
                     <img src={require('../images/insertionsort.png')} height="400px" width="400px"></img>
-                    <p>Ref: https://en.wikipedia.org/wiki/Bubble_sort</p>
+                    <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/insertion-sort/">https://www.geeksforgeeks.org/insertion-sort/ </a></p></div>
+                    
 
                 </div>
                 <div className="SourceCode">
                     <p className="boldclass">
-                        C++ Source Code for Insertion Sort:
+                        Source Code for Insertion Sort:
                     </p>
-                    <div className="designCode">
+                    <div className="designCode" align="left">
                         <pre>
                             {`
                             ///cpmlexity O(n^2)
@@ -41,7 +42,7 @@ Example: <br />
                                 printf("Enter numbers of input:");
                                 scanf("%d",&n);
                                 int arr[n];
-                                printf("enter some data:\n");
+                                printf("enter some data: ");
                                 for(i=0;i<n;i++)
                                 {
                                     scanf("%d",&arr[i]);
@@ -57,7 +58,7 @@ Example: <br />
                                     }
                                     arr[j+1]=val;
                                 }
-                                printf("After sorting:\n");
+                                printf("After sorting: ");
                                 for(i=0;i<n;i++)
                                     printf("%d ",arr[i]);
                                 return 0;
