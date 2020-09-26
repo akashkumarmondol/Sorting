@@ -15,6 +15,7 @@ import SelectionSortAlgo from './pages/SelectionSortAlgo';
 import MergeSortAlgo from './pages/MergeSortAlgo';
 import HeapSortAlgo from './pages/HeapSortAlgo';
 import QuickSortAlgo from './pages/QuickSortAlgo';
+import Navbar from './SortingVisualizer/Navbar';
 
 function App() {
   return (
@@ -25,24 +26,31 @@ function App() {
             <SortingVisualizer></SortingVisualizer>
           </Route>
           <Route exact path="/">
-            <Home/>
+            <Navbar />
+            <Home />
           </Route>
           <Route path="/Insertion-algo">
+            <Navbar />
             <InsertionSortAlgo></InsertionSortAlgo>
           </Route>
           <Route path="/Bubble-algo">
+            <Navbar />
             <BubbleSortAlgo></BubbleSortAlgo>
           </Route>
           <Route path="/Selection-algo">
+            <Navbar />
             <SelectionSortAlgo></SelectionSortAlgo>
           </Route>
           <Route path="/Merge-algo">
+            <Navbar />
             <MergeSortAlgo></MergeSortAlgo>
           </Route>
           <Route path="/Heap-algo">
+            <Navbar />
             <HeapSortAlgo></HeapSortAlgo>
           </Route>
           <Route path="/Quick-algo">
+            <Navbar />
             <QuickSortAlgo></QuickSortAlgo>
           </Route>
         </Switch>
