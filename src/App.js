@@ -16,6 +16,7 @@ import MergeSortAlgo from './pages/MergeSortAlgo';
 import HeapSortAlgo from './pages/HeapSortAlgo';
 import QuickSortAlgo from './pages/QuickSortAlgo';
 import Navbar from './SortingVisualizer/Navbar';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/">
             <Navbar />
             <Home />
+            <Footer/>
           </Route>
           <Route path="/Insertion-algo">
             <Navbar />
