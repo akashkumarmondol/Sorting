@@ -1,0 +1,43 @@
+.BodyContainer{
+    max-width: 1200px;
+    background-color: #e4f9f5;
+    margin: 0 auto;
+}
+.bottom-container{
+    background-color: rgb(50, 34, 87);
+    text-align: center;
+    padding: 1px;
+}
+.bottom-container p{
+    color: white;
+}
+.BodyContainer h2{
+    text-align: left;
+    margin-left: 50px;
+    padding-top: 20px;
+}
+
+.BodyContainer h1{
+    text-align: left;
+    border-color: black;
+    border-style: solid;
+    padding-left: 50px;
+    border-width: 1px;
+    padding-bottom: 10px;
+}
+.BodyContainer p{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.video{
+    padding-bottom: 20px;
+
+}
+.upperFotter{
+    background-color: rgb(34, 34, 75);
+}
+.contact{
+    display: flex;
+
+}

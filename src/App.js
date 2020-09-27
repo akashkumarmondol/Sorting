@@ -16,7 +16,7 @@ import MergeSortAlgo from './pages/MergeSortAlgo';
 import HeapSortAlgo from './pages/HeapSortAlgo';
 import QuickSortAlgo from './pages/QuickSortAlgo';
 import Navbar from './SortingVisualizer/Navbar';
-import Footer from './Footer';
+import Footer from './SortingVisualizer/Footer';
 
 function App() {
   return (
