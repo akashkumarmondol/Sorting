@@ -35,9 +35,12 @@
 
 }
 .upperFotter{
-    background-color: rgb(34, 34, 75);
-}
-.contact{
     display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
 
+.contact{
+    text-align: left;
+    line-height: 0.4;
 }
