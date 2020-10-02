@@ -1,8 +1,9 @@
+var counter=0;
 export function getInsertionSortAnimations(array)
 {
     let animations=[];
     insertionSort(array,animations);
-    return animations;
+    return [animations, counter];
 }
 function insertionSort(array,animations)
 {
@@ -23,11 +24,13 @@ function insertionSort(array,animations)
             animations.push(["colorChangedTwo",j+1,j]);
             array[j+1]=array[j];
             j=j-1;
+            counter++;
             
         }
         animations.push(["colorChangedOne",j+1,j+1]);
         animations.push(["overwrite",j+1,key]);
         animations.push(["colorChangedTwo",j+1,j+1]);
         array[j+1]=key;
+        counter++;
     }
 }

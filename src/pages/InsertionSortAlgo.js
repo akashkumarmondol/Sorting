@@ -23,6 +23,10 @@ class InsertionSortAlgo extends Component {
 Example: <br />
                     </p>
                     <img src={require('../images/insertionsort.png')} height="400px" width="400px"></img>
+                    <div align="left"><p>Time Complexity:<br/> &nbsp;&nbsp;&nbsp;&nbsp;Worst complexity: n^2 <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Average complexity: n^2<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Best complexity: n </p>
+                    </div>
                     <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/insertion-sort/">https://www.geeksforgeeks.org/insertion-sort/ </a></p></div>
                     
 

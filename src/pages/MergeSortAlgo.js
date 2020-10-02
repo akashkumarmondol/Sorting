@@ -9,9 +9,9 @@ class MergeSortAlgo extends Component {
                 <div className="SetParagraph">
                     <p align="left">Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves.
 Conceptually, a merge sort works as follows:<br/><br/>
-1.	Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).<br/><br/>
+1.	Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted.<br/>
 2.	Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.<br/><br/>
-The merge() function is used for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See following C implementation for details.<br/><br/>
+The merge() function is used for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See following C implementation for details.
 
                      </p>
                      <p align="left">
@@ -29,7 +29,11 @@ The merge() function is used for merging two halves. The merge(arr, l, m, r) is 
                         Example: Given a array  Data: [38, 27, 43, 3, 9, 82, 10]. Data makes sorted using Merge Sort.<br/>
 
                     </p>
-                    <img src={require('../images/MergeSort.png')} height="400px" width="400px"></img>
+                    <img src={require('../images/MergeSort.png')} height="400px" width="400px"></img><br/>
+                    <div align="left"><p>Time Complexity:<br/> &nbsp;&nbsp;&nbsp;&nbsp;Worst complexity: n*log(n) <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Average complexity: n*log(n)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Best complexity: n*log(n) </p>
+                    </div>
                     <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/merge-sort/">https://www.geeksforgeeks.org/merge-sort/</a></p></div>
                     
                 </div>

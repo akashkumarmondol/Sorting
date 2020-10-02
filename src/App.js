@@ -17,6 +17,7 @@ import HeapSortAlgo from './pages/HeapSortAlgo';
 import QuickSortAlgo from './pages/QuickSortAlgo';
 import Navbar from './SortingVisualizer/Navbar';
 import Footer from './SortingVisualizer/Footer';
+import ComparedSort from './SortingVisualizer/ComparedSort'
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
           <Route path="/Quick-algo">
             <Navbar />
             <QuickSortAlgo></QuickSortAlgo>
+          </Route>
+          <Route path="/Compared-algo">
+            <ComparedSort></ComparedSort>
           </Route>
         </Switch>
       </div>

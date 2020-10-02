@@ -22,23 +22,27 @@ Given an array Data: 7 1 5 3 10<br/>
 Find the Data in ascending order using Bubble Sort. In each step, the compared element will be Bold. Three passes will be required:<br/>
 First Pass<br/>
 ( <b>7 1</b> 5 3 10) → ( <b>1 7</b> 5 3 10 ), Here, the bubble sort algorithm compares the first two elements, and swaps them since 7 &lt; 1.<br/>
-( 1 <b>7 5</b> 3 10) → ( 1 <b>5 7</b> 3 10 ), Swap since 7 &lt; 5<br/>
-( 1 5 <b>7 3</b> 10) → ( 1 5 <b>3 7 </b>10), Swap since 7 &lt; 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 <b>7 5</b> 3 10) → ( 1 <b>5 7</b> 3 10 ), Swap since 7 &lt; 5<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;( 1 5 <b>7 3</b> 10) → ( 1 5 <b>3 7 </b>10), Swap since 7 &lt; 3<br/>
 ( 1 5 3 <b>7 10</b>) → ( 1 5 3 <b>7 10</b> ), Now, since these elements are already in order (10 &lt; 7), algorithm does not swap them.<br/>
 Second Pass<br/>
-( <b>1 5</b>  3 7 10) → ( <b>1 5</b> 3 7 10)<br/>
-( 1 <b>5 3</b> 7 10) → ( 1 <b>3 5</b> 7 10), Swap since 5 &lt; 3<br/>
-( 1 3 <b>5 7</b> 10) → ( 1 3 <b>5 7 </b>10)<br/>
-( 1 3 5 <b>7 10</b>) → ( 1 3 5 <b>7 10</b>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( <b>1 5</b>  3 7 10) → ( <b>1 5</b> 3 7 10)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 <b>5 3</b> 7 10) → ( 1 <b>3 5</b> 7 10), Swap since 5 &lt; 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 3 <b>5 7</b> 10) → ( 1 3 <b>5 7 </b>10)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 3 5 <b>7 10</b>) → ( 1 3 5 <b>7 10</b>)<br/>
 Now, the array is already sorted, but the algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.<br/>
 Third Pass<br/>
-( <b>1 3</b> 5 7 10) → ( <b>1 3</b> 5 7 10)<br/>
-( 1 <b>3 5</b> 7 10) → ( 1 <b>3 5</b> 7 10)<br/>
-( 1 3 <b>5 7</b> 10) → ( 1 3 <b>5 7</b> 10)<br/>
-( 1 3 5 <b>7 10</b>) → ( 1 3 5 <b>7 10</b>)<br/>
-Then Data: 1 3 5 7 10<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( <b>1 3</b> 5 7 10) → ( <b>1 3</b> 5 7 10)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 <b>3 5</b> 7 10) → ( 1 <b>3 5</b> 7 10)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 3 <b>5 7</b> 10) → ( 1 3 <b>5 7</b> 10)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;( 1 3 5 <b>7 10</b>) → ( 1 3 5 <b>7 10</b>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Then Data: 1 3 5 7 10<br/>
 
                     </p>
+                    <div align="left"><p>Time Complexity:<br/> &nbsp;&nbsp;&nbsp;&nbsp;Worst complexity: n^2 <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Average complexity: n^2<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Best complexity: n </p>
+                    </div>
                     <div className="ForRef"> <p>Ref: <a href="https://en.wikipedia.org/wiki/Bubble_sort">https://en.wikipedia.org/wiki/Bubble_sort </a></p></div>
                     
                 </div>

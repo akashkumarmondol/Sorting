@@ -16,7 +16,7 @@ function Home() {
                 <h1>Sorting Algorithm Visualizer</h1>
                 <p>Making a video of my Sorting Algorithm Visualizer</p>
                 <div align="center" className="video">
-                    <ReactPlayer url="https://www.youtube.com/watch?v=kPRA0W1kECg&t=54s&ab_channel=TimoBingmann" controls={true}></ReactPlayer>
+                    <ReactPlayer url="https://www.youtube.com/watch?v=W-oqv3uezlY" controls={true}></ReactPlayer>
                 </div>
 
             </div>

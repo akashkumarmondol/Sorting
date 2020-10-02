@@ -8,18 +8,18 @@ function Footer() {
                 <p>Contact us</p>
                 <div className="upperFotter">
                     <div className="contact">
-                        <p>Name: Akash Kumar Mondol</p>
-                        <p>Email: akash.ice.ru@gmail.com</p>
-                        <p>Mobile No: 01521-458326</p>
+                        <p>Name: </p>
+                        <p>Email: </p>
+                        <p>Mobile No: </p>
                     </div>
                     <div className="contact">
-                        <p>Name: Abdullah Al Mahfuz</p>
-                        <p>Email: aamahfuz2@gmail.com</p>
-                        <p>Mobile No: 01718-896655</p>
+                        <p>Name: </p>
+                        <p>Email: </p>
+                        <p>Mobile No: </p>
                     </div>
 
                 </div>
-                <div class="footer-copyright text-center py-3"><p>© 2020 Copyright, Sorting Algorithm Visualizer, All right reserved. Developed by Akash and Mahfuz.</p></div>
+                <div class="footer-copyright text-center py-3"><p>© 2020 Copyright, Sorting Algorithm Visualizer, All right reserved.</p></div>
             </footer>
         </div>
     )

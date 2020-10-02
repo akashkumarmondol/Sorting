@@ -27,7 +27,11 @@ Let { 4, 5, 3, 1, 2 } be the list that we want to sort from the smallest to the 
                     </p>
                     <img src={require('../images/BuildHeap.png')} height="500px" width="800px"></img>
                     
-                    <img src={require('../images/SortHeapNew.png')} height="800px" width="800px"></img>
+                    <img src={require('../images/SortHeapNew.png')} height="800px" width="800px"></img><br/>
+                    <div align="left"><p>Time Complexity:<br/> &nbsp;&nbsp;&nbsp;&nbsp;Worst complexity:  n*log(n) <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Average complexity:  n*log(n)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Best complexity:  n*log(n) </p>
+                    </div>
                     <div className="ForRef"> <p>Ref: <a href="https://en.wikipedia.org/wiki/Heapsort">https://en.wikipedia.org/wiki/Heapsort </a></p></div>
                     
                 </div>

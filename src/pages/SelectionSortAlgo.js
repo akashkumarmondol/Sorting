@@ -30,6 +30,10 @@ After fourth step Data will must be sorted.<br/>
 
 
                     </p>
+                    <div align="left"><p>Time Complexity:<br/> &nbsp;&nbsp;&nbsp;&nbsp;Worst complexity: n^2 <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Average complexity: n^2<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Best complexity: n^2 </p>
+                    </div>
                     
                     <div className="ForRef"> <p>Ref: <a href="https://www.geeksforgeeks.org/selection-sort/">https://www.geeksforgeeks.org/selection-sort/ </a></p></div>
                     
