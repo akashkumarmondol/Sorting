@@ -18,6 +18,8 @@ const THIRD_COLOR = 'yellow';
 const FORTH_COLOR = 'pink'
 const barwidth = 20;
 const multiply=1;
+var sortOneValue= 1;
+var sortTwoValue= 8;
 
 export default class ComparedSort extends React.Component {
     constructor(props) {
@@ -28,7 +30,7 @@ export default class ComparedSort extends React.Component {
             comparedArray: [],
             showSelectedBar: " ",
             showSelectedSpeed: " ",
-            barAuto: 30,
+            barAuto: 40,
             speedAuto: 10,
             barwidthAuto: 30,
             barwidthMargin: 3,
@@ -37,10 +39,48 @@ export default class ComparedSort extends React.Component {
 
         };
     }
+
+    SortOne(firstSortId){
+        this.changeColor(firstSortId);
+        sortOneValue=firstSortId;
+    }
+    SortTwo(secondSortId){
+        this.changeColor(secondSortId);
+        sortTwoValue=secondSortId;
+        this.startAnimation();
+    }
+    startAnimation(){
+        if(sortOneValue===1)
+            this.selectionSort();
+        else if(sortOneValue===2)
+            this.bubbleSort();
+        else if(sortOneValue===3)
+            this.insertionSort();
+        else if(sortOneValue===4)
+            this.mergeSort();
+        else if(sortOneValue===5)
+            this.heapSort();
+        else
+            this.quickSort();
+
+
+        if(sortTwoValue===7)
+            this.selectionSortTwo();
+        else if(sortTwoValue===8)
+            this.bubbleSortTwo();
+        else if(sortTwoValue===9)
+            this.insertionSortTwo();
+        else if(sortTwoValue===10)
+            this.mergeSortTwo();
+        else if(sortTwoValue===11)
+            this.heapSortTwo();
+        else 
+            this.quickSortTwo();
+    }
   
     onChangeHandlerBar = (event) => {
         var selectValue = event.target.value;
-        var val = (Math.floor((30 * 30) / selectValue));
+        var val = (Math.floor((40 * 30) / selectValue));
         var pixel = (Math.ceil((60 / selectValue)));
         this.setState({ showSelectedBar: selectValue });
         this.setState({ barAuto: selectValue });
@@ -86,6 +126,7 @@ export default class ComparedSort extends React.Component {
         const comparedArray=array.slice();
         this.setState({ array });
         this.setState({ comparedArray });
+        this.changeColor(13);
     }
 
 
@@ -106,12 +147,20 @@ export default class ComparedSort extends React.Component {
 
     changeColor(id){
         let allButton = document.querySelectorAll('#sortId > li > button');
+        let submitButtonfind=document.getElementById("submitButton");
         if(id == 0)
         {
             for(let i=0;i<allButton.length;i++){
                 allButton[i].classList.remove('ButtonColorChange')
             }
             allButton[id].classList.add('ButtonColorChange');
+        }
+        else if(id==13)
+        {
+            for(let i=0;i<allButton.length;i++){
+                allButton[i].classList.remove('ButtonColorChange')
+            }
+            submitButtonfind.classList.add('ButtonColorChange');
         }
         else if(id<=6)
         {
@@ -131,8 +180,6 @@ export default class ComparedSort extends React.Component {
     }
 
     insertionSort() {
-        let id = 3;
-        this.changeColor(id);
         
         const animations = getInsertionSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
@@ -229,8 +276,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 let color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 let [temp, barOneIndex, barTwoIndex] = animations[i];
-                console.log(animations[i]);
-                console.log(temp); console.log(barOneIndex); console.log(barTwoIndex);
                 let barOneStyle = arrayBars[barOneIndex].style
                 let barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -285,8 +330,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 let color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 let [temp, barOneIndex, barTwoIndex] = animations[i];
-                console.log(animations[i]);
-                console.log(temp); console.log(barOneIndex); console.log(barTwoIndex);
                 let barOneStyle = arrayBars[barOneIndex].style
                 let barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -533,7 +576,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 const [temp, barOneIndex, barTwoIndex] = animations[i];
-                console.log(animations[i]);
                 const barOneStyle = arrayBars[barOneIndex].style
                 const barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -588,7 +630,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 const [temp, barOneIndex, barTwoIndex] = animations[i];
-                console.log(animations[i]);
                 const barOneStyle = arrayBars[barOneIndex].style
                 const barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -644,7 +685,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 const [temp, barOneIndex, barTwoIndex] = animations[i];
-                // console.log(animations[i]);
                 const barOneStyle = arrayBars[barOneIndex].style
                 const barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -700,7 +740,6 @@ export default class ComparedSort extends React.Component {
             if (animations[i][0] === "comp1" || (animations[i][0] === "comp2")) {
                 const color = (animations[i][0] === "comp1") ? SECONDARY_COLOR : PRIMARY_COLOR;
                 const [temp, barOneIndex, barTwoIndex] = animations[i];
-                // console.log(animations[i]);
                 const barOneStyle = arrayBars[barOneIndex].style
                 const barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -771,28 +810,27 @@ export default class ComparedSort extends React.Component {
                             </select>
                         </li>
                         <li><p>Choose One algorithm</p></li>
-                        <li><button id="SelectionID" onClick={() => this.selectionSort()}>Selection Sort</button></li>
-                        <li><button id="BubbleID" onClick={() => this.bubbleSort()}>Bubble Sort</button></li>
-                        <li><button id="InsertionID" onClick={() => this.insertionSort()}>Insertion Sort</button></li>
-                        <li><button id="MergeID" onClick={() => this.mergeSort()}>Merge Sort</button></li>
-                        <li><button id="HeapID" onClick={() => this.heapSort()}>Heap Sort</button></li>
-                        <li><button id="QuickID" onClick={() => this.quickSort()}>Quick Sort</button></li>
+                        <li><button id="SelectionID" className="btnSetOne" onClick={this.SortOne.bind(this,1)}>Selection Sort</button></li>
+                        <li><button id="BubbleID" className="btnSetOne" onClick={this.SortOne.bind(this,2)}>Bubble Sort</button></li>
+                        <li><button id="InsertionID" className="btnSetOne" onClick={this.SortOne.bind(this,3)}>Insertion Sort</button></li>
+                        <li><button id="MergeID" className="btnSetOne" onClick={this.SortOne.bind(this,4)}>Merge Sort</button></li>
+                        <li><button id="HeapID" className="btnSetOne" onClick={this.SortOne.bind(this,5)}>Heap Sort</button></li>
+                        <li><button id="QuickID" className="btnSetOne" onClick={this.SortOne.bind(this,6)}>Quick Sort</button></li>
                     </ul>
                     <ul id="sortId" className="comparedButton">
                         <li><p>Choose Another algorithm</p></li>
-                        <li><button id="SelectionID" onClick={() => this.selectionSortTwo()}>Selection Sort</button></li>
-                        <li><button id="BubbleID" onClick={() => this.bubbleSortTwo()}>Bubble Sort</button></li>
-                        <li><button id="InsertionID" onClick={() => this.insertionSortTwo()}>Insertion Sort</button></li>
-                        <li><button id="MergeID" onClick={() => this.mergeSortTwo()}>Merge Sort</button></li>
-                        <li><button id="HeapID" onClick={() => this.heapSortTwo()}>Heap Sort</button></li>
-                        <li><button id="QuickID" onClick={() => this.quickSortTwo()}>Quick Sort</button></li>
-                        <li><button id="startID" >Start Animation</button></li>
+                        <li><button id="SelectionID" className="btnSetTwo" onClick={this.SortTwo.bind(this,7)}>Selection Sort</button></li>
+                        <li><button id="BubbleID" className="btnSetTwo" onClick={this.SortTwo.bind(this,8)}>Bubble Sort</button></li>
+                        <li><button id="InsertionID" className="btnSetTwo" onClick={this.SortTwo.bind(this,9)}>Insertion Sort</button></li>
+                        <li><button id="MergeID" className="btnSetTwo" onClick={this.SortTwo.bind(this,10)}>Merge Sort</button></li>
+                        <li><button id="HeapID" className="btnSetTwo" onClick={this.SortTwo.bind(this,11)}>Heap Sort</button></li>
+                        <li><button id="QuickID" className="btnSetTwo" onClick={this.SortTwo.bind(this,12)}>Quick Sort</button></li>
                     </ul>
                 </div>
                 <div className="Input-type">
                     <input className="input1" onChange={this.onChange_Dynamic_Input_array_number} type="text" placeholder="Enter number of element: "></input>
                     <input id="arrayID" className="input3" onChange={this.onChange_Dynamic_Input_array} type="text" placeholder="Enter your Array"></input>
-                    <button onClick={() => this.Dynamic_array_submit()} className="input4">submit</button>
+                    <button id="submitButton" onClick={() => this.Dynamic_array_submit()} className="input4">submit</button>
                 </div>
                 <div className="Paragrapgh">
                     <p className="para1">The number of element is&nbsp;:&nbsp; {this.state.dynamic_Input_array_number} &nbsp;</p>
@@ -838,3 +876,5 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 
 }
+
+//Back to the  write position
