@@ -1,9 +1,11 @@
 var animations=[];
+var counter=0;
 export function getQuickSortAnimations(array)
 {
+    counter=0;
     QuickSort(array,0,array.length-1);
     console.log(array);
-    return [animations,array];
+    return [animations,array,counter];
 }
 
 function QuickSort(array,low,high)
@@ -35,6 +37,7 @@ function partition(array,low,high)
             array[i]=array[j];
             array[j]=temp;
         }
+        counter++;
     }
     animations.push(["colorChangedOne",i+1,high]);
     animations.push(["swap",i+1,array[high]]);

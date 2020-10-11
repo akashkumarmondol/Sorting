@@ -85,6 +85,7 @@ function buildMaxHeap(array,animations)
                 array[val]=temp;
                 j=Math.floor((j-1)/2);
                 val=Math.floor((j-1)/2);
+                counter++;
             }
         }
     }

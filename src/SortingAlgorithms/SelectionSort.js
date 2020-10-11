@@ -1,10 +1,12 @@
+var counter=0;
 export function getSelectionSortAnimations(array)
 {
     let animations = [];
+    counter=0;
     selectionSort(array,animations);
     //console.log(array);
     let len=animations.length;
-    return [animations,array];
+    return [animations,array,counter];
 }
 
 function selectionSort(array,animations)
@@ -21,6 +23,7 @@ function selectionSort(array,animations)
             {
                 minIdx=j;
             }
+            counter++;
         }
         animations.push(["colorChangedOne",minIdx,i]);
         animations.push(["swap",minIdx,array[i]]);

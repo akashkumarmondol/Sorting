@@ -1,9 +1,11 @@
+var counter=0;
 export function getMergeSortAnimations(array) {
     const animations = [];
+    counter=0;
     if (array.length <= 1) return array;
     const auxiliaryArray = array.slice();
     mergeSortHelper(array, 0, array.length - 1, auxiliaryArray, animations);
-    return animations;
+    return [animations,counter];
   }
   
   function mergeSortHelper(mainArray, startIdx, endIdx, auxiliaryArray, animations) {
@@ -36,6 +38,7 @@ export function getMergeSortAnimations(array) {
         animations.push(["colorChangedTwo",k,k]);
         mainArray[k++] = auxiliaryArray[j++];
       }
+      counter++;
     }
     while (i <= middleIdx) {
       //animations.push([i, i]);
@@ -44,6 +47,7 @@ export function getMergeSortAnimations(array) {
       animations.push(["swap",k, auxiliaryArray[i]]);
       animations.push(["colorChangedTwo",k,k]);
       mainArray[k++] = auxiliaryArray[i++];
+      counter++;
     }
     while (j <= endIdx) {
      // animations.push([j, j]);
@@ -52,6 +56,7 @@ export function getMergeSortAnimations(array) {
       animations.push(["swap",k, auxiliaryArray[j]]);
       animations.push(["colorChangedTwo",k,k]);
       mainArray[k++] = auxiliaryArray[j++];
+      counter++;
     }
   }
   

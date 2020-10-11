@@ -1,17 +1,16 @@
+var counter=0;
 export function getHeapSortAnimations(array)
 {
     let animations = [];
-    //console.log(array);
+    counter=0;
     heapSort(array,animations);
-   // console.log(array);
-    return [animations,array];
+    return [animations,array,counter];
 }
 
 function heapSort(array,animations)
 {
     const N=array.length;
     buildMaxHeap(array,animations);
-   // console.log(array);
    
     for(let i=N-1;i>0;i--)
     {
@@ -53,6 +52,7 @@ function heapSort(array,animations)
                 array[index]=temp;
             }
             j=index;
+            counter++;
 
         }while(index<i);
     }
@@ -83,6 +83,7 @@ function buildMaxHeap(array,animations)
                 array[val]=temp;
                 j=Math.floor((j-1)/2);
                 val=Math.floor((j-1)/2);
+                counter++;
             }
         }
     }

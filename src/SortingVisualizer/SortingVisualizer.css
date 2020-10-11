@@ -127,3 +127,13 @@
   .comparedButton{
     padding-left: 520px;
   }
+  .Paragrapgh .NumberOfComparison{
+    margin-left: 600px;
+    color: red;
+    font-size: 22px;
+  }
+  .NumberOfComparisonTwo{
+    color: red;
+    margin-left: 620px;
+    font-size: 22px;
+  }

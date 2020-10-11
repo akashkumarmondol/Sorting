@@ -1,8 +1,10 @@
+var counter=0;
 export function getBubbleSortAnimations(array)
 {
     let animations=[];
+    counter=0;
     bubbleSort(array,animations);
-    return [animations,array];
+    return [animations,array,counter];
 }
 function bubbleSort(array,animations)
 {
@@ -13,6 +15,7 @@ function bubbleSort(array,animations)
         {
             animations.push(["comp1",j,j+1]);
             animations.push(["comp2",j,j+1]);
+            counter++;
             
             if(array[j]>array[j+1])
             {

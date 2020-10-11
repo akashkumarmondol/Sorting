@@ -20,6 +20,8 @@ const barwidth = 20;
 const multiply=1;
 var sortOneValue= 1;
 var sortTwoValue= 8;
+var ForSortOne= " ";
+var ForSortTwo= " ";
 
 export default class ComparedSort extends React.Component {
     constructor(props) {
@@ -36,6 +38,8 @@ export default class ComparedSort extends React.Component {
             barwidthMargin: 3,
             dynamic_Input_array_number: " ",
             dynamic_Input_array_element: " ",
+            One: " ",
+            Two: " ",
 
         };
     }
@@ -127,10 +131,18 @@ export default class ComparedSort extends React.Component {
         this.setState({ array });
         this.setState({ comparedArray });
         this.changeColor(13);
+        this.executeMethod();
+    }
+    executeMethod()
+    {
+        this.setState({One: ForSortOne});
+        this.setState({Two: ForSortTwo});
+        ForSortTwo=" ";
+        ForSortOne=" ";
     }
 
 
-    /*  componentDidMount() {
+   /* componentDidMount() {
           this.resetArray();
       }*/
     resetArray() {
@@ -142,6 +154,7 @@ export default class ComparedSort extends React.Component {
         const comparedArray=array.slice();
         this.setState({ array });
         this.setState({ comparedArray });
+        this.executeMethod();
 
     }
 
@@ -181,7 +194,8 @@ export default class ComparedSort extends React.Component {
 
     insertionSort() {
         
-        const animations = getInsertionSortAnimations(this.state.array);
+        const [animations,counter] = getInsertionSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Insertion Sort is "+ counter;
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
             const barValue = document.getElementsByClassName('bar-value');
@@ -220,7 +234,8 @@ export default class ComparedSort extends React.Component {
         let id = 9;
         this.changeColor(id);
         
-        const animations = getInsertionSortAnimations(this.state.comparedArray);
+        const [animations,counter] = getInsertionSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Insertion Sort is "+ counter;
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar2');
             const barValue = document.getElementsByClassName('bar-value2');
@@ -254,6 +269,7 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
     }
 
 
@@ -261,7 +277,9 @@ export default class ComparedSort extends React.Component {
         let id=1;
         this.changeColor(id);
         
-        let [animations, array] = getSelectionSortAnimations(this.state.array);
+        let [animations, array,counter] = getSelectionSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Selection Sort is "+ counter;
+        
         let N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             let arrayBars = document.getElementsByClassName('array-bar');
@@ -315,7 +333,8 @@ export default class ComparedSort extends React.Component {
         let id=7;
         this.changeColor(id);
         
-        let [animations, array] = getSelectionSortAnimations(this.state.comparedArray);
+        let [animations, array,counter] = getSelectionSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Selection Sort is "+ counter;
         let N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             let arrayBars = document.getElementsByClassName('array-bar2');
@@ -364,6 +383,7 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
     }
 
     bubbleSort() {
@@ -371,7 +391,8 @@ export default class ComparedSort extends React.Component {
         let id= 2;
         this.changeColor(id);
         
-        let [animations, array] = getBubbleSortAnimations(this.state.array);
+        let [animations, array,counter] = getBubbleSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Bubble Sort is "+ counter;
         let N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             let arrayBars = document.getElementsByClassName('array-bar');
@@ -426,7 +447,8 @@ export default class ComparedSort extends React.Component {
         let id= 8;
         this.changeColor(id);
         
-        const [animations, array] = getBubbleSortAnimations(this.state.comparedArray);
+        const [animations, array,counter] = getBubbleSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Bubble Sort is "+ counter;
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             const arrayBars = document.getElementsByClassName('array-bar2');
@@ -475,12 +497,14 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
     }
     mergeSort() {
         let id = 4;
         this.changeColor(id);
         
-        const animations = getMergeSortAnimations(this.state.array);
+        const [animations,counter] = getMergeSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Merge Sort is "+ counter;
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
             const barValue = document.getElementsByClassName('bar-value');
@@ -520,7 +544,8 @@ export default class ComparedSort extends React.Component {
         let id = 10;
         this.changeColor(id);
         
-        const animations = getMergeSortAnimations(this.state.comparedArray);
+        const [animations,counter] = getMergeSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Merge Sort is "+ counter;
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar2');
             const barValue = document.getElementsByClassName('bar-value2');
@@ -554,6 +579,7 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
 
     }
 
@@ -561,7 +587,8 @@ export default class ComparedSort extends React.Component {
         let id = 5;
         this.changeColor(id);
         
-        const [animations, array] = getHeapSortAnimations(this.state.array);
+        const [animations, array,counter] = getHeapSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Heap Sort is "+ counter;
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
@@ -615,7 +642,8 @@ export default class ComparedSort extends React.Component {
         let id = 11;
         this.changeColor(id);
         
-        const [animations, array] = getHeapSortAnimations(this.state.comparedArray);
+        const [animations, array,counter] = getHeapSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Heap Sort is "+ counter;
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             const arrayBars = document.getElementsByClassName('array-bar2');
@@ -664,13 +692,15 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
     }
 
     quickSort() {
         let id = 6;
         this.changeColor(id);
         
-        const [animations, array] = getQuickSortAnimations(this.state.array);
+        const [animations, array,counter] = getQuickSortAnimations(this.state.array);
+        ForSortOne= "The Number of Loop count for Quick Sort is "+ counter;
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
@@ -725,7 +755,8 @@ export default class ComparedSort extends React.Component {
         let id = 12;
         this.changeColor(id);
         
-        const [animations, array] = getQuickSortAnimations(this.state.comparedArray);
+        const [animations, array,counter] = getQuickSortAnimations(this.state.comparedArray);
+        ForSortTwo= "The Number of Loop count for Quick Sort is "+ counter;
         const N = animations.length + array.length;
         for (let i = 0; i < N; i++) {
             const arrayBars = document.getElementsByClassName('array-bar2');
@@ -775,6 +806,7 @@ export default class ComparedSort extends React.Component {
                 }, i * this.state.speedAuto);
             }
         }
+        this.executeMethod();
     }
 
 
@@ -831,10 +863,15 @@ export default class ComparedSort extends React.Component {
                     <input className="input1" onChange={this.onChange_Dynamic_Input_array_number} type="text" placeholder="Enter number of element: "></input>
                     <input id="arrayID" className="input3" onChange={this.onChange_Dynamic_Input_array} type="text" placeholder="Enter your Array"></input>
                     <button id="submitButton" onClick={() => this.Dynamic_array_submit()} className="input4">submit</button>
+                    
                 </div>
                 <div className="Paragrapgh">
                     <p className="para1">The number of element is&nbsp;:&nbsp; {this.state.dynamic_Input_array_number} &nbsp;</p>
                     <p className="para2">Input Array :&nbsp;&nbsp; {this.state.dynamic_Input_array_element}&nbsp; </p>
+                    <p className="NumberOfComparison">{this.state.One}</p>
+                </div>
+                <div>  
+                    <p className="NumberOfComparisonTwo">{this.state.Two}</p>
                 </div>
 
                 <div className="array-container">
